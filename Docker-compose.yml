@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto
+    restart: always
+    ports:
+      - "1883:1883"   # MQTT TCP
+      - "9001:9001"   # (opcional) MQTT sobre WebSockets
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 1883 || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
