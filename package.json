@@ -1,0 +1,19 @@
+{
+  "name": "ecotrackservice",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "Andres Duarte",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase-admin": "^13.2.0",
+    "morgan": "^1.10.0",
+    "mqtt": "^5.13.1"
+  }
+}
